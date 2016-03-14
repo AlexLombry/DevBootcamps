@@ -17,6 +17,9 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     // permission available for user (user can denied it)
     let locationmanager = CLLocationManager()
     
+    // Distance in meters
+    let regionRadius: CLLocationDistance = 1000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // mandatory
@@ -33,19 +36,6 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         super.didReceiveMemoryWarning()
     }
     
-    
-    func locationAuthStatus() {
-        // have the user authorise app location when is currently use.
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            // We can show the current user location
-            map.showsUserLocation = true
-        } else {
-            // ask user if we can use location
-            locationmanager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    /// MARK
     /// Initiate the Table View (mandatory func)
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -62,5 +52,32 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 
     }
+    
+    /// Authorisation by User ?
+    func locationAuthStatus() {
+        // have the user authorise app location when is currently use.
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            // We can show the current user location
+            map.showsUserLocation = true
+        } else {
+            // ask user if we can use location
+            locationmanager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    /// Create the centered region on map
+    func centerLocationMap(location: CLLocation) {
+        // create the coordinate
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2, regionRadius * 2)
+        map.setRegion(coordinateRegion, animated: true)
+    }
+    
+    /// Update user location
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        if let locate = userLocation.location {
+            centerLocationMap(locate)
+        }
+    }
+    
 }
 
