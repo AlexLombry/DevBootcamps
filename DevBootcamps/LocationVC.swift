@@ -100,8 +100,6 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             anView.animatesDrop = true
             
             return anView
-        } else if annotation.isKindOfClass(MKUserLocation) {
-            return nil
         }
         
         return nil
