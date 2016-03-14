@@ -20,6 +20,12 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     // Distance in meters
     let regionRadius: CLLocationDistance = 1000
     
+    // debug addresses
+    let addresses = [
+        "22 Rue réaumur, 75002 Paris France",
+        "23 Rue de cléry, 75002 Paris France",
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // mandatory
@@ -52,6 +58,11 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 
     }
+    
+    
+    // Latitude : 48.8534100
+    // Longitude : 2.3488000
+
     
     /// Authorisation by User ?
     func locationAuthStatus() {

@@ -13,6 +13,7 @@
 		FAA6758B1C96C59F0024B161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA675891C96C59F0024B161 /* Main.storyboard */; };
 		FAA6758D1C96C59F0024B161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA6758C1C96C59F0024B161 /* Assets.xcassets */; };
 		FAA675901C96C59F0024B161 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA6758E1C96C59F0024B161 /* LaunchScreen.storyboard */; };
+		FAA675981C96D1120024B161 /* BootcampAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA675971C96D1120024B161 /* BootcampAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FAA6758C1C96C59F0024B161 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA6758F1C96C59F0024B161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA675911C96C59F0024B161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA675971C96D1120024B161 /* BootcampAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootcampAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				FAA6758C1C96C59F0024B161 /* Assets.xcassets */,
 				FAA6758E1C96C59F0024B161 /* LaunchScreen.storyboard */,
 				FAA675911C96C59F0024B161 /* Info.plist */,
+				FAA675971C96D1120024B161 /* BootcampAnnotation.swift */,
 			);
 			path = DevBootcamps;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				FAA675881C96C59F0024B161 /* LocationVC.swift in Sources */,
 				FAA675841C96C59F0024B161 /* AppDelegate.swift in Sources */,
 				FAA675861C96C59F0024B161 /* FirstViewController.swift in Sources */,
+				FAA675981C96D1120024B161 /* BootcampAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
