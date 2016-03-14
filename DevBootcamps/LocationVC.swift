@@ -18,7 +18,7 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     let locationmanager = CLLocationManager()
     
     // Distance in meters
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 100000
     
     // debug addresses
     let addresses = [
@@ -32,6 +32,10 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         map.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        for add in addresses {
+            getPlaceFromAddress(add)
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -90,5 +94,22 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    func createAnnotationForLocation(location: CLLocation) {
+        // create location and turn it into annotation
+        let locs = BootcampAnnotation(coordinate: location.coordinate)
+        map.addAnnotation(locs)
+    }
+    
+    func getPlaceFromAddress(address: String) {
+        CLGeocoder().geocodeAddressString(address) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            // if we have at least 1 result
+            if let marks = placemarks where marks.count > 0 {
+                // if we have a valid location with lat lon
+                if let loc = marks[0].location {
+                    self.createAnnotationForLocation(loc)
+                }
+            }
+        }
+    }
 }
 

@@ -14,6 +14,7 @@
 		FAA6758D1C96C59F0024B161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA6758C1C96C59F0024B161 /* Assets.xcassets */; };
 		FAA675901C96C59F0024B161 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA6758E1C96C59F0024B161 /* LaunchScreen.storyboard */; };
 		FAA675981C96D1120024B161 /* BootcampAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA675971C96D1120024B161 /* BootcampAnnotation.swift */; };
+		FAA6759A1C96D5300024B161 /* idf.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FAA675991C96D5300024B161 /* idf.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FAA6758F1C96C59F0024B161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA675911C96C59F0024B161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA675971C96D1120024B161 /* BootcampAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootcampAnnotation.swift; sourceTree = "<group>"; };
+		FAA675991C96D5300024B161 /* idf.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = idf.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		FAA675771C96C59F0024B161 = {
 			isa = PBXGroup;
 			children = (
+				FAA675991C96D5300024B161 /* idf.gpx */,
 				FAA675821C96C59F0024B161 /* DevBootcamps */,
 				FAA675811C96C59F0024B161 /* Products */,
 			);
@@ -59,13 +62,13 @@
 			isa = PBXGroup;
 			children = (
 				FAA675831C96C59F0024B161 /* AppDelegate.swift */,
+				FAA675971C96D1120024B161 /* BootcampAnnotation.swift */,
 				FAA675851C96C59F0024B161 /* FirstViewController.swift */,
 				FAA675871C96C59F0024B161 /* LocationVC.swift */,
 				FAA675891C96C59F0024B161 /* Main.storyboard */,
 				FAA6758C1C96C59F0024B161 /* Assets.xcassets */,
 				FAA6758E1C96C59F0024B161 /* LaunchScreen.storyboard */,
 				FAA675911C96C59F0024B161 /* Info.plist */,
-				FAA675971C96D1120024B161 /* BootcampAnnotation.swift */,
 			);
 			path = DevBootcamps;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 				FAA675901C96C59F0024B161 /* LaunchScreen.storyboard in Resources */,
 				FAA6758D1C96C59F0024B161 /* Assets.xcassets in Resources */,
 				FAA6758B1C96C59F0024B161 /* Main.storyboard in Resources */,
+				FAA6759A1C96D5300024B161 /* idf.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
