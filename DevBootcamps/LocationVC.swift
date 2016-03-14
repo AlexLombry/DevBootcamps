@@ -63,11 +63,6 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
     }
     
-    
-    // Latitude : 48.8534100
-    // Longitude : 2.3488000
-
-    
     /// Authorisation by User ?
     func locationAuthStatus() {
         // have the user authorise app location when is currently use.
