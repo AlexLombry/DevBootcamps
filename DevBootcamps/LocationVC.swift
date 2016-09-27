@@ -38,7 +38,7 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         locationAuthStatus()
     }
     
@@ -47,26 +47,26 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     /// Initiate the Table View (mandatory func)
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ cellForRowAttableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 
     }
     
     /// Authorisation by User ?
     func locationAuthStatus() {
         // have the user authorise app location when is currently use.
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             // We can show the current user location
             map.showsUserLocation = true
         } else {
@@ -76,27 +76,27 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     /// Create the centered region on map
-    func centerLocationMap(location: CLLocation) {
+    func centerLocationMap(_ location: CLLocation) {
         // create the coordinate
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2, regionRadius * 2)
         map.setRegion(coordinateRegion, animated: true)
     }
     
     /// Update user location
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if let locate = userLocation.location {
             centerLocationMap(locate)
         }
     }
 
     // annotation include also location
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         /// redundant nil return but only for learning purpose
-        if annotation.isKindOfClass(BootcampAnnotation) {
+        if annotation.isKind(of: BootcampAnnotation.self) {
             let anView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Default")
             
             // change pin color and animation
-            anView.pinTintColor = UIColor.greenColor()
+            anView.pinTintColor = .green
             anView.animatesDrop = true
             
             return anView
@@ -105,17 +105,16 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return nil
     }
     
-    func createAnnotationForLocation(location: CLLocation) {
+    func createAnnotationForLocation(_ location: CLLocation) {
         // create location and turn it into 
         // annotation and then put it on the map
         let locs = BootcampAnnotation(coordinate: location.coordinate)
         map.addAnnotation(locs)
     }
     
-    func getPlaceFromAddress(address: String) {
-        CLGeocoder().geocodeAddressString(address) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            // if we have at least 1 result
-            if let marks = placemarks where marks.count > 0 {
+    func getPlaceFromAddress(_ address: String) {
+        CLGeocoder().geocodeAddressString(address) { (placemarks: [CLPlacemark]?, nil) -> Void in
+            if let marks = placemarks , marks.count > 0 {
                 // if we have a valid location with lat lon
                 if let loc = marks[0].location {
                     self.createAnnotationForLocation(loc)
